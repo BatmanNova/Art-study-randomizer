@@ -123,14 +123,17 @@ const FISH =
     'Blue whale',
     'Humpback Whale',
     'Gray whale',
-    'bowhead whales'
+    'bowhead whales',
+    'Walrus',
+    'Eared seals',
+    'sea lions',
+    'True seals'
 ];
     
-const LANDANIMALS = 
+const MAMMALS = 
 [
     'cuscuses',
     'Red panda',
-    'Walrus',
     "Leadbeater's possum",
     'Dogs',
     'wolves',
@@ -144,22 +147,10 @@ const LANDANIMALS =
     'ferrets',
     'badgers',
     'otters',
-    'Eared seals',
-    'sea lions',
-    'True seals',
     'Raccoons',
     'coatis',
     'kinkajous',
     'Bears',
-    'Agamas',
-    'chameleons',
-    'Geckos',
-    'Anoles',
-    'iguanas',
-    'Skinks',
-    'Whiptails',
-    'tegus',
-    'Monitor lizards',
     'Three-toed sloths',
     'Armadillos',
     'Two-toed sloths',
@@ -234,4 +225,40 @@ const LANDANIMALS =
     'Leaf-nosed bats',
     'Vesper bats',
     'Free-tailed bats'
+];
+
+const REPTILES = [
+    'Agamas',
+    'chameleons',
+    'Geckos',
+    'Anoles',
+    'iguanas',
+    'Skinks',
+    'Whiptails',
+    'tegus',
+    'Monitor lizards'
+];
+
+const FILM = [
+    'Genre',
+    'Action',
+    'Animation',
+    'Biography',
+    'Comedy',
+    'Comic',
+    'Crime',
+    'Documentary',
+    'Drama',
+    'Fantasy',
+    'Horror',
+    'Martial-arts',
+    'Musical',
+    'new wave',
+    'Romance',
+    'Sci-fi',
+    'Silent',
+    'Sports',
+    'Thriller',
+    'War',
+    'Western'
 ];

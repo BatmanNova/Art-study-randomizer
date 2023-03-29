@@ -23,10 +23,10 @@ function getListContents(){
     var selectedCategoriesContents = [];
 
     selectedCategories.forEach((category) => {
-        const animalArrayName = category.value.toUpperCase();
-        const animalArray = eval(animalArrayName);
-        animalArray.forEach((animal) => {
-            selectedCategoriesContents.push(animal);
+        const categoryArrayName = category.value.toUpperCase();
+        const categoryArray = eval(categoryArrayName);
+        categoryArray.forEach((element) => {
+            selectedCategoriesContents.push(element);
         });
     });
     return selectedCategoriesContents;
@@ -34,27 +34,27 @@ function getListContents(){
 
 // This function won't utilize getListContents because I want the category name to be displayed
 function displaySelectedContents() {
-    const selectedAnimals = document.querySelectorAll('input[name="animal"]:checked');
+    const selectedCategories = document.querySelectorAll('input[type="checkbox"]:checked');
     const animalContainer = document.getElementById('animalContainer');
     animalContainer.innerHTML = '';
     
-    selectedAnimals.forEach((checkbox) => {
-        const animalArrayName = checkbox.value.toUpperCase();
-        const animalArray = eval(animalArrayName);
-        const animalList = document.createElement('div');
-        animalList.setAttribute("id", "animalList");
+    selectedCategories.forEach((checkbox) => {
+        const categoryArrayName = checkbox.value.toUpperCase();
+        const categoryArray = eval(categoryArrayName);
+        const categoryList = document.createElement('div');
+        categoryList.setAttribute("id", "categoryList");
         const categoryName = document.createElement('h2');
 
         categoryName.textContent = checkbox.value;
-        animalList.appendChild(categoryName);
+        categoryList.appendChild(categoryName);
 
-        animalArray.forEach((animal) => {
-            const animalItem = document.createElement('div');
-            animalItem.setAttribute("id", "containerWrapper");
-            animalItem.textContent = animal;
-            animalList.appendChild(animalItem);
+        categoryArray.forEach((element) => {
+            const categoryItem = document.createElement('div');
+            categoryItem.setAttribute("id", "containerWrapper");
+            categoryItem.textContent = element;
+            categoryList.appendChild(categoryItem);
         });
-        animalContainer.appendChild(animalList);
+        animalContainer.appendChild(categoryList);
     });
 }
 
@@ -73,7 +73,7 @@ function randomizeListContents(){
 
 function spinWheel() {
     const startTime = performance.now();
-    const element = document.getElementById('box');
+    const element = document.getElementById('subjectBox');
     const duration = 1000; // 1 second
     const selectedCategoriesContents = randomizeListContents();
 
@@ -83,6 +83,7 @@ function spinWheel() {
     
         if (timeElapsed >= duration) {
             element.textContent = selectedCategoriesContents[Math.floor(Math.random() * selectedCategoriesContents.length)];
+            searchListsForWinner();
         } else {
             element.textContent = selectedCategoriesContents[Math.floor(Math.random() * selectedCategoriesContents.length)];
             requestAnimationFrame(spin);
@@ -92,15 +93,47 @@ function spinWheel() {
     requestAnimationFrame(spin);
 }
 
-function searchWinner(){
-    const winner = document.getElementById('box');
+function searchListsForWinner(){
+    const winner = document.getElementById('subjectBox');
+    const selectedCategories = getSelectedLists();
+    const subjectBox = document.getElementById('categoryBox');
 
-    if(winner.textContent == '---'){
-        // do nothing
-    } else {
-        var basehyperlink = 'https://www.google.com/search?tbm=isch&q=';
-        var searchterm = winner.textContent;
-        var hyperlink = basehyperlink.concat(searchterm);
-        window.open(hyperlink, '_blank');
+    selectedCategories.forEach((category) => {
+        const categoryArrayName = category.value.toUpperCase();
+        const categoryArray = eval(categoryArrayName);
+
+        categoryArray.forEach((item) => {
+
+            if (item == winner.textContent){
+                subjectBox.textContent = category.value.charAt(0).toUpperCase() + category.value.slice(1);
+            }
+        });
+    
+    });
+}
+
+function searchWinner(){
+    const winnerSubject = document.getElementById('subjectBox');
+    const winnerCategory = document.getElementById('categoryBox');
+    var animalRegex = /Fish|Birds|Mammals|Insects|Reptiles/
+
+    if(winnerSubject.textContent == '---'){
+        // do nothing as there is no winner
+    }
+    else {
+        if(winnerCategory.textContent == 'Film'){
+            var basehyperlink = 'https://film-grab.com/category/genre/';
+            var searchterm = winnerSubject.textContent;
+            var hyperlink = basehyperlink.concat(searchterm + '/');
+            window.open(hyperlink, '_blank');
+        } else if (animalRegex.test(winnerCategory.textContent)){
+            var basehyperlink = 'https://www.google.com/search?tbm=isch&q=';
+            var searchterm = winnerSubject.textContent;
+            var hyperlink = basehyperlink.concat(searchterm);
+            window.open(hyperlink, '_blank');
+        } else {
+            alert('No search results for this category yet. Sorry! :(');
+        }
+
     }
 }
