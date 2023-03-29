@@ -1,0 +1,67 @@
+html {
+    text-align: center;
+    font:  "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    font-size: 1.2rem;
+}
+
+body.dark-mode {
+    background-color: #0d0d0e;
+    color: #ffffff;
+}
+
+button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+footer {
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+}
+#categoriesContainer {
+    text-align: center;
+    margin: 0.75rem;
+}
+  
+#checkboxContainer {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+  
+#checkboxWrapper {
+    display: flex;
+    align-items: center;
+    padding: .1rem;
+}
+
+#door {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#box {
+    font-size: 2rem;
+}
+
+#animalContainer {
+    text-align: center;
+    margin: 0.75rem;
+}
+
+#animalList {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Study Selector</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+  </head>
+  <body>
+    <main>
+        <div id="Header">
+            <h1>Welcome to my art study randomizer</h1>   
+        </div>
+        <div id="categoriesContainer">
+            <p>Please select which categories you would like to study from.</p> 
+            <div id="checkboxContainer">
+                <div id="checkboxWrapper">
+                    <label><input type="checkbox" name="animal" value="fish">Fish</label><br>
+                </div>
+                <div id="checkboxWrapper">
+                    <label><input type="checkbox" name="animal" value="birds">Birds</label><br>
+                </div>
+                <div id="checkboxWrapper">
+                    <label><input type="checkbox" name="animal" value="insects">Insects</label><br>
+                </div>
+                <div id="checkboxWrapper">
+                    <label><input type="checkbox" name="animal" value="landanimals">Land Animals</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div id="lottoButtonContainer">
+            <button onclick="spinWheel()">Spin for your study subject</button>
+        </div>
+        <div id="LottoContainer">
+            <div class="door">
+                <div id="box">---</div>
+            </div>
+            <button onclick="searchWinner()">Browse images of winner</button>
+        </div>
+        <div id="categoryContentContainer">
+            <br>
+            <button onclick="displaySelectedContents()">Display content</button>
+        </div>
+        <div id="animalContainer"></div>
+    </main>
+    <script src="animaliaLists.js"></script>
+	<script src="script.js"></script>
+  </body>
+  <footer>
+    <p>I believe that when given too many choices it is easy to become overwhelmed and be unable to make a decision.
+        to remedy this I have created this randomizer to help decide what to study when I am feeling indecisive.
+        Hopefully this can help you as well. <br> This website is a work in progress, I plan on adding several more
+        categories including Plants, Clothing, Architecture, Environments, Film, and more.
+    </p>
+    <p>Created by: <a href="https://github.com/BatmanNova">Drew Penn</a></p>
+  </footer>
+</html>
