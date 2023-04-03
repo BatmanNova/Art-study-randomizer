@@ -128,7 +128,7 @@ const FISH = [
     
 const MAMMALS = 
 [
-    'cuscuses',
+    'cuscuse',
     'Red panda',
     "Leadbeater's possum",
     'Dog',
