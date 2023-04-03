@@ -15,6 +15,7 @@ function getSelectedLists() {
     checkboxes.forEach((checkbox) => {
         selectedCategories.push(checkbox);
     });
+
     return selectedCategories;
 }
 
@@ -29,20 +30,21 @@ function getListContents(){
             selectedCategoriesContents.push(element);
         });
     });
+
     return selectedCategoriesContents;
 }
 
 // This function won't utilize getListContents because I want the category name to be displayed
 function displaySelectedContents() {
     const selectedCategories = document.querySelectorAll('input[type="checkbox"]:checked');
-    const animalContainer = document.getElementById('animalContainer');
+    const animalContainer = document.getElementsByClassName('displayCategoryContainer');
     animalContainer.innerHTML = '';
     
     selectedCategories.forEach((checkbox) => {
         const categoryArrayName = checkbox.value.toUpperCase();
         const categoryArray = eval(categoryArrayName);
         const categoryList = document.createElement('div');
-        categoryList.setAttribute("id", "categoryList");
+        categoryList.setAttribute("class", "categoryList");
         const categoryName = document.createElement('h2');
 
         categoryName.textContent = checkbox.value;
@@ -84,7 +86,8 @@ function spinWheel() {
         if (timeElapsed >= duration) {
             element.textContent = selectedCategoriesContents[Math.floor(Math.random() * selectedCategoriesContents.length)];
             searchListsForWinner();
-        } else {
+        }
+        else {
             element.textContent = selectedCategoriesContents[Math.floor(Math.random() * selectedCategoriesContents.length)];
             requestAnimationFrame(spin);
         }
@@ -108,30 +111,56 @@ function searchListsForWinner(){
                 subjectBox.textContent = category.value.charAt(0).toUpperCase() + category.value.slice(1);
             }
         });
-    
     });
+}
+function searchGoogle(searchTerm){
+    var baseHyperlink = 'https://www.google.com/search?tbm=isch&q=';
+    var hyperlink = baseHyperlink.concat(searchTerm);
+    window.open(hyperlink, '_blank');
+}
+
+function searchPinterest(searchTerm){
+    // full hyperlink https://www.pinterest.com/search/pins/?q=(INPUT GOES HERE)&rs=typed
+    var basehyperlink = 'https://www.pinterest.com/search/pins/?q='
+    var hyperlink = basehyperlink.concat(searchTerm);
+    var hyperlinkExtension = '&rs=typed'
+    hyperlink = hyperlink.concat(hyperlinkExtension);
+    window.open(hyperlink, '_blank');
+}    
+
+
+function searchFilmGrab(searchTerm){
+    var baseHyperlink = 'https://film-grab.com/category/genre/';
+    var hyperlink = baseHyperlink.concat(searchTerm + '/');
+    window.open(hyperlink, '_blank');
 }
 
 function searchWinner(){
     const winnerSubject = document.getElementById('subjectBox');
     const winnerCategory = document.getElementById('categoryBox');
-    var animalRegex = /Fish|Birds|Mammals|Insects|Reptiles/
+    var animalRegex = /Fish|Birds|Mammals|Insects|Reptiles/;
+    var miscCategoryRegex = /Environments|Fashion|Architecture/;
 
     if(winnerSubject.textContent == '---'){
         // do nothing as there is no winner
     }
     else {
         if(winnerCategory.textContent == 'Film'){
-            var basehyperlink = 'https://film-grab.com/category/genre/';
-            var searchterm = winnerSubject.textContent;
-            var hyperlink = basehyperlink.concat(searchterm + '/');
-            window.open(hyperlink, '_blank');
-        } else if (animalRegex.test(winnerCategory.textContent)){
-            var basehyperlink = 'https://www.google.com/search?tbm=isch&q=';
-            var searchterm = winnerSubject.textContent;
-            var hyperlink = basehyperlink.concat(searchterm);
-            window.open(hyperlink, '_blank');
-        } else {
+            searchFilmGrab(winnerSubject.textContent);
+        }
+        else if (animalRegex.test(winnerCategory.textContent) || miscCategoryRegex.test(winnerCategory.textContent)){
+            var checkedSearchEngine = document.querySelector('input[name="search"]:checked').value;
+            if (checkedSearchEngine == 'google'){
+                searchGoogle(winnerSubject.textContent);
+            }
+            else if (checkedSearchEngine == 'pinterest'){
+                searchPinterest(winnerSubject.textContent);
+            }
+            else {
+                alert('Please select a search engine.');
+            }
+        }
+        else {
             alert('No search results for this category yet. Sorry! :(');
         }
 

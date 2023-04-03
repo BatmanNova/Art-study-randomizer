@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Study Selector</title>
-    <link rel="stylesheet" href="./stylesheet.css">
-  </head>
-  <body>
-    <main>
-        <div id="Header">
-            <h1>Art study randomizer</h1>   
-        </div>
-        <div id="categoriesContainer">
-            <p>Please select which categories you would like to study from.</p> 
-            <div id="checkboxContainer">
-                <div id="checkboxWrapper">
-                    <label><input type="checkbox" name="animal" value="fish">Fish</label><br>
-                </div>
-                <div id="checkboxWrapper">
-                    <label><input type="checkbox" name="animal" value="birds">Birds</label><br>
-                </div>
-                <div id="checkboxWrapper">
-                    <label><input type="checkbox" name="animal" value="mammals">Mammals</label><br>
-                </div>
-                <div id="checkboxWrapper">
-                    <label><input type="checkbox" name="animal" value="insects">Insects</label><br>
-                </div>
-                <div id="checkboxWrapper">
-                    <label><input type="checkbox" name="animal" value="reptiles">Reptiles</label><br>
-                </div>
-                <div id="checkboxWrapper">
-                    <label><input type="checkbox" name="film" value="film">Film</label><br>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Art study randomizer</title>
+        <link rel="stylesheet" href="./stylesheet.css">
+    </head>
+    <body>
+        <main>
+            <div id="Header">
+                <h1>Art study randomizer</h1>   
+            </div>
+            <div class="parentButtonContainer">
+                <p>Please select which categories you would like to study from.</p> 
+                <div class="buttonContainer">
+                    <div class="inputWrapper">
+                        <label><input type="checkbox" name="animal" value="fish">Fish</label><br>
+                    </div>
+                    <div class="inputWrapper">
+                        <label><input type="checkbox" name="animal" value="birds">Birds</label><br>
+                    </div>
+                    <div class="inputWrapper">
+                        <label><input type="checkbox" name="animal" value="insects">Insects</label><br>
+                    </div>
+                    <div class="inputWrapper">
+                        <label><input type="checkbox" name="animal" value="reptiles">Reptiles</label><br>
+                    </div>
+                    <div class="inputWrapper">
+                        <label><input type="checkbox" name="animal" value="mammals">Mammals</label><br>
+                    </div>
+                    <div class= "inputWrapper">
+                        <label><input type="checkbox" name="environments" value="environments">Environments</label><br>
+                    </div>
+                    <div class="inputWrapper">
+                        <label><input type="checkbox" name="architecture" value="architecture">Architecture</label><br>
+                    </div>
+                    <div class="inputWrapper">
+                        <label><input type="checkbox" name="fashion" value="fashion">Fashion</label><br>
+                    </div>
+                    <div class="inputWrapper">
+                        <label><input type="checkbox" name="film" value="film">Film</label><br>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="lottoButtonContainer">
-            <button onclick="spinWheel()">Spin for your study subject</button>
-        </div>
-        <div id="LottoContainer">
-            <div class="door">
-                <div id="categoryBox">---</div>
-                <div id="subjectBox">---</div>
+            <div id="lottoButtonContainer">
+                <button onclick="spinWheel()">Spin for your study subject</button>
             </div>
-            <button onclick="searchWinner()">Browse images of winner</button>
-        </div>
-        <div id="categoryContentContainer">
-            <br>
-            <button onclick="displaySelectedContents()">Display category content</button>
-        </div>
-        <div id="animalContainer"></div>
-    </main>
-    <script src="animaliaLists.js"></script>
-	<script src="script.js"></script>
-  </body>
-  <footer>
-    <p>I believe that when given too many choices it is easy to become overwhelmed and be unable to make a decision.
-        to remedy this I have created this randomizer to help decide what to study when I am feeling indecisive.
-        Hopefully this can help you as well. <br><br> This website is a work in progress, I plan on adding several more
-        categories including Plants, Clothing, Architecture, Environments, Film, and more.<br>
-    </p>
-    <p>Created by: <a href="https://github.com/BatmanNova">Drew Penn</a></p>
-  </footer>
+            <div id="LottoContainer">
+                <div class="door">
+                    <div id="categoryBox">---</div>
+                    <div id="subjectBox">---</div>
+                </div>
+            </div>
+            <div class="parentButtonContainer">
+                <p>Choose your search engine (Film studies use film-grab.com)</p>
+                <div class="buttonContainer">
+                    <div class="inputWrapper">
+                        <label><input type="radio" name="search" value="pinterest" checked>Pinterest</label><br>
+                    </div>
+                    <div class="inputWrapper">
+                        <label><input type="radio" name="search" value="google">Google Images</label><br>
+                    </div>
+                </div>
+            </div>
+            <button onclick="searchWinner()">Browse images of winner</button>    
+            <div id="categoryContentContainer">
+                <br>
+                <button onclick="displaySelectedContents()">Display category content</button>
+            </div>
+            <div class="displayCategoryContainer"></div>
+        </main>
+        <script src="animaliaLists.js"></script>
+        <script src="script.js"></script>
+    </body>
+    <footer>
+        <p>I believe that when given too many choices it is easy to become overwhelmed and be unable to make a decision.
+            To remedy this I have created this randomizer to help decide what to study when I am feeling indecisive.
+            Hopefully this can help you as well. <br><br> This website is a work in progress, I plan on adding
+            more categories as I see fit or by recommendation. If you experience a bad search results let me know.<br>
+        </p>
+        <p>Created by: <a href="https://github.com/BatmanNova">Drew Penn</a></p>
+    </footer>
 </html>
