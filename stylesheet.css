@@ -25,9 +25,10 @@ button {
 }
 
 footer {
-    padding-left: 20%;
-    padding-right: 20%;
+    display: inline-flex;
+    flex-direction: column;
     text-align: center;
+    max-width: 40rem;
 }
 
 .parentButtonContainer {
