@@ -120,7 +120,7 @@ const FISH = [
     'Humpback Whale',
     'Gray whale',
     'bowhead whale',
-    'Walru',
+    'Walrus',
     'Eared seal',
     'sea lion',
     'True seal'

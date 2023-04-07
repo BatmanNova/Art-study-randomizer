@@ -37,9 +37,10 @@ function getListContents(){
 // This function won't utilize getListContents because I want the category name to be displayed
 function displaySelectedContents() {
     const selectedCategories = document.querySelectorAll('input[type="checkbox"]:checked');
-    const animalContainer = document.getElementsByClassName('displayCategoryContainer');
+    const animalContainer = document.getElementsByClassName('displayCategoryContainer')[0];
     animalContainer.innerHTML = '';
-    
+    console.log(animalContainer);
+
     selectedCategories.forEach((checkbox) => {
         const categoryArrayName = checkbox.value.toUpperCase();
         const categoryArray = eval(categoryArrayName);
@@ -56,6 +57,7 @@ function displaySelectedContents() {
             categoryItem.textContent = element;
             categoryList.appendChild(categoryItem);
         });
+
         animalContainer.appendChild(categoryList);
     });
 }
