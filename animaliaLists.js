@@ -341,8 +341,6 @@ const FASHION = [
     'Steampunk Style',
     'Romantic Style',
     'Harajuku Style',
-    'Lolita Style',
-    'Kawaii Style',
     '1980s Style',
     '1970s Style',
     '1960s Style',
@@ -396,6 +394,5 @@ const ARCHITECTURE = [
     'Tudor Architecture',
     'Prairie Style Architecture',
     'Futurist Architecture',
-    'Deconstructivist Architecture',
     'Expressionist Architecture'
 ];
