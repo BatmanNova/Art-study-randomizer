@@ -5,14 +5,14 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 
 function getSelectedLists() {
     var selectedCategories = [];
-    const checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+    var checkedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
 
-    if (checkboxes.length == 0) {
-        alert('Please select at least one category.');
-        return;
+    if (checkedBoxes.length == 0) {
+        // If 0, select every checkbox so a winner is randomly chosen from all categories
+        checkedBoxes = document.querySelectorAll('input[type=checkbox]');
     }
 
-    checkboxes.forEach((checkbox) => {
+    checkedBoxes.forEach((checkbox) => {
         selectedCategories.push(checkbox);
     });
 
