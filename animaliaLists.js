@@ -396,3 +396,26 @@ const ARCHITECTURE = [
     'Futurist Architecture',
     'Expressionist Architecture'
 ];
+
+const STILL_LIFE = [
+    'Flower pieces still life',
+    'Animal pieces still life',
+    'Banquet pieces still life',
+    'Symbolic still life'
+]
+
+const PORTRAITS = [
+    'Traditional portraits',
+    'Candid portraits',
+    'Lifestyle portraits',
+    'Glamour portraits',
+    'Conceptual portraits',
+    'Close up portraits',
+    'Group portraits',
+    'Environmental portraits',
+    'Pet portraits',
+    'Profile View portraits',
+    'Full Face View portraits',
+    'Troonie portraits',
+    'Three Quarter View portraits'
+]

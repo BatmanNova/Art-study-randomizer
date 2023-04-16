@@ -11,8 +11,11 @@
             <div id="Header">
                 <h1>Art study randomizer</h1>   
             </div>
+            <div class="genericTextBox">
+                <p>Please select which categories you would like to study from.<br>If you don't want to select one, pressing Spin 
+                    randomly selects something from all categories.</p> 
+            </div>
             <div class="parentButtonContainer">
-                <p>Please select which categories you would like to study from.</p> 
                 <div class="buttonContainer">
                     <div class="inputWrapper">
                         <label><input type="checkbox" name="animal" value="fish">Fish</label><br>
@@ -36,6 +39,12 @@
                         <label><input type="checkbox" name="architecture" value="architecture">Architecture</label><br>
                     </div>
                     <div class="inputWrapper">
+                        <label><input type="checkbox" name="still_life" value="still_life">Still life</label><br>
+                    </div>
+                    <div class="inputWrapper">
+                        <label><input type="checkbox" name="portraits" value="portraits">Portraits</label><br>
+                    </div>
+                    <div class="inputWrapper">
                         <label><input type="checkbox" name="fashion" value="fashion">Fashion</label><br>
                     </div>
                     <div class="inputWrapper">
@@ -54,10 +63,13 @@
                 </div>
             </div>
             <div class="parentButtonContainer">
-                <p>Choose your search engine<br>(Film studies direct to film-grab.com)</p>
+                <p>Choose your search engine<br>(Film studies should use film-grab.com)</p>
                 <div class="buttonContainer">
+                    <div class="inputWrapper" id="film-grab-div" style="display: none;">
+                        <label><input type="radio" name="search" id="film-grab" value="film-grab">Film-grab</label><br>
+                    </div>
                     <div class="inputWrapper">
-                        <label><input type="radio" name="search" value="pinterest" checked>Pinterest</label><br>
+                        <label><input type="radio" name="search" id="pinterest" value="pinterest" checked>Pinterest</label><br>
                     </div>
                     <div class="inputWrapper">
                         <label><input type="radio" name="search" value="google">Google Images</label><br>
@@ -76,11 +88,13 @@
         <script src="script.js"></script>
     </body>
     <footer>
-        <p>I believe that when given too many choices it is easy to become overwhelmed and be unable to make a decision.
-            To remedy this I have created this randomizer to help decide what to study when I am feeling indecisive.
-            Hopefully this can help you as well. <br><br> This website is a work in progress, I plan on adding
-            more categories as I see fit or by recommendation. If you experience a bad search results let me know.<br>
-        </p>
-        <p>Created by: <a href="https://github.com/BatmanNova">Drew Penn</a></p>
+        <div class="genericTextBox">
+            <p>I believe that when given too many choices it is easy to become overwhelmed and be unable to make a decision.
+                To remedy this I have created this randomizer to help decide what to study when I am feeling indecisive.
+                Hopefully this can help you as well. <br><br> This website is a work in progress, I plan on adding
+                more categories as I see fit or by recommendation. If you experience a bad search results let me know.<br>
+            </p>
+            <p>Created by: <a href="https://github.com/BatmanNova">Drew Penn</a></p>
+        </div>
     </footer>
 </html>

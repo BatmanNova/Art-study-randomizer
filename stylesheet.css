@@ -24,7 +24,7 @@ button {
     color: #000000;
 }
 
-footer {
+.genericTextBox {
     display: inline-flex;
     flex-direction: column;
     text-align: center;

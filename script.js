@@ -3,10 +3,31 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     document.body.classList.add('dark-mode');
 }
 
+//constants of lists (categories of art studies)
+const animalRegex = /Fish|Birds|Mammals|Insects|Reptiles/;
+const miscCategoryRegex = /Environments|Fashion|Architecture|Film|Portraits/;
+const twoWordCategoryRegex = /Still_life/;
+
+//The flow of the program is as follows:
+//1. User selects categories of art studies they want to study
+//2. User clicks the spin button
+//3. The spin button calls the spinWheel function
+//4. The spinWheel function calls the randomizeListContents function
+//5. The randomizeListContents function calls the getListContents function
+//6. The getListContents function calls the getSelectedLists function
+//7. The getSelectedLists function checks if any checkboxes are checked, if none, "check" all
+//8. The getSelectedLists function returns an array of the selected checkboxes
+//9. The getListContents function iterates through the array of selected checkboxes, pushing contents of all to 1 array
+//10. The randomizeListContents function randomizes the array of all contents of selected categories
+//11. The spinWheel function displays a random element from the randomized array
+//12. Once the spinWheel duration ends, the spinWheel function displays the category and subject of the random element (winner)
+//13. When the Browse images button is pressed, the categoryBox is checked against the regex to clean or search
+//14. SubjectBox contents are used to search for images dependant upon radio button selection
+ 
 function getSelectedLists() {
     var selectedCategories = [];
     var checkedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
-
+    
     if (checkedBoxes.length == 0) {
         // If 0, select every checkbox so a winner is randomly chosen from all categories
         checkedBoxes = document.querySelectorAll('input[type=checkbox]');
@@ -81,6 +102,11 @@ function spinWheel() {
     const duration = 1000; // 1 second
     const selectedCategoriesContents = randomizeListContents();
 
+    //resetting the slot machines category box
+    if(document.getElementById('categoryBox').textContent != '---'){
+        document.getElementById('categoryBox').textContent = '---';
+    }
+
     function spin() {
         const currentTime = performance.now();
         const timeElapsed = currentTime - startTime;
@@ -99,9 +125,9 @@ function spinWheel() {
 }
 
 function searchListsForWinner(){
-    const winner = document.getElementById('subjectBox');
+    const winnerSubject = document.getElementById('subjectBox');
     const selectedCategories = getSelectedLists();
-    const subjectBox = document.getElementById('categoryBox');
+    const winnerCategory = document.getElementById('categoryBox');
 
     selectedCategories.forEach((category) => {
         const categoryArrayName = category.value.toUpperCase();
@@ -109,12 +135,30 @@ function searchListsForWinner(){
 
         categoryArray.forEach((item) => {
 
-            if (item == winner.textContent){
-                subjectBox.textContent = category.value.charAt(0).toUpperCase() + category.value.slice(1);
+            if (item == winnerSubject.textContent){
+                winnerCategory.textContent = category.value.charAt(0).toUpperCase() + category.value.slice(1);
+                
+                if (twoWordCategoryRegex.test(winnerCategory.textContent)){
+                    winnerCategory.textContent = winnerCategory.textContent.replace('_', ' ');
+                }
             }
         });
     });
+
+    //There may be a better place for this but i'm adding it here currently
+    // Following function will display the film-grab search button if the winner is a film
+    if (subjectBox.textContent == 'Film'){
+        document.getElementById('film-grab-div').style.display = 'block';
+        document.getElementById('pinterest').checked = false;
+        document.getElementById('film-grab').checked = true;
+    } else {
+        document.getElementById('film-grab').checked = false;
+        document.getElementById('pinterest').checked = true;
+        document.getElementById('film-grab-div').style.display = 'none';
+        
+    }
 }
+
 function searchGoogle(searchTerm){
     var baseHyperlink = 'https://www.google.com/search?tbm=isch&q=';
     var hyperlink = baseHyperlink.concat(searchTerm);
@@ -140,23 +184,23 @@ function searchFilmGrab(searchTerm){
 function searchWinner(){
     const winnerSubject = document.getElementById('subjectBox');
     const winnerCategory = document.getElementById('categoryBox');
-    var animalRegex = /Fish|Birds|Mammals|Insects|Reptiles/;
-    var miscCategoryRegex = /Environments|Fashion|Architecture/;
 
     if(winnerSubject.textContent == '---'){
         // do nothing as there is no winner
     }
     else {
-        if(winnerCategory.textContent == 'Film'){
-            searchFilmGrab(winnerSubject.textContent);
-        }
-        else if (animalRegex.test(winnerCategory.textContent) || miscCategoryRegex.test(winnerCategory.textContent)){
+        if (animalRegex.test(winnerCategory.textContent) || miscCategoryRegex.test(winnerCategory.textContent) 
+            || twoWordCategoryRegex.test(winnerCategory.textContent))
+            {
             var checkedSearchEngine = document.querySelector('input[name="search"]:checked').value;
             if (checkedSearchEngine == 'google'){
                 searchGoogle(winnerSubject.textContent);
             }
             else if (checkedSearchEngine == 'pinterest'){
                 searchPinterest(winnerSubject.textContent);
+            }
+            else if(checkedSearchEngine == 'film-grab'){
+                searchFilmGrab(winnerSubject.textContent);
             }
             else {
                 alert('Please select a search engine.');
