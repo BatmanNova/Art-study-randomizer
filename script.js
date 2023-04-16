@@ -8,6 +8,7 @@ const animalRegex = /Fish|Birds|Mammals|Insects|Reptiles/;
 const miscCategoryRegex = /Environments|Fashion|Architecture|Film|Portraits/;
 const twoWordCategoryRegex = /Still_life/;
 
+//This function will return an array of all the selected categories
 function getSelectedLists() {
     var selectedCategories = [];
     var checkedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
@@ -24,6 +25,7 @@ function getSelectedLists() {
     return selectedCategories;
 }
 
+// This function will return an array of all the contents of the selected categories
 function getListContents(){
     var selectedCategories = getSelectedLists();
     var selectedCategoriesContents = [];
@@ -31,6 +33,7 @@ function getListContents(){
     selectedCategories.forEach((category) => {
         const categoryArrayName = category.value.toUpperCase();
         const categoryArray = eval(categoryArrayName);
+        
         categoryArray.forEach((element) => {
             selectedCategoriesContents.push(element);
         });
@@ -40,6 +43,7 @@ function getListContents(){
 }
 
 // This function won't utilize getListContents because I want the category name to be displayed
+// This function just displays the contents of the selected categories
 function displaySelectedContents() {
     const selectedCategories = document.querySelectorAll('input[type="checkbox"]:checked');
     const animalContainer = document.getElementsByClassName('displayCategoryContainer')[0];
@@ -67,6 +71,7 @@ function displaySelectedContents() {
     });
 }
 
+// this list randomizes the contents of the selected categories
 function randomizeListContents(){
     const selectedCategoriesContents = getListContents();
     const randomizedList = [];
@@ -80,6 +85,12 @@ function randomizeListContents(){
     return randomizedList;
 }
 
+// this function "spins the wheel" based on the duration timer, 
+// randomly selecting an element from the randomized list based on the recursive
+// requestAnimationFrame function calling spin().
+// once the duration timer is up, "subjectBox" contains the "winner" which is an element
+// of the randomized list.
+// searchListsForWinner() is then called.
 function spinWheel() {
     const startTime = performance.now();
     const element = document.getElementById('subjectBox');
@@ -108,6 +119,7 @@ function spinWheel() {
     requestAnimationFrame(spin);
 }
 
+// This function will search the randomized list for the winner (based on subjectBox contents) and display the category
 function searchListsForWinner(){
     const winnerSubject = document.getElementById('subjectBox');
     const selectedCategories = getSelectedLists();
@@ -158,13 +170,13 @@ function searchPinterest(searchTerm){
     window.open(hyperlink, '_blank');
 }    
 
-
 function searchFilmGrab(searchTerm){
     var baseHyperlink = 'https://film-grab.com/category/genre/';
     var hyperlink = baseHyperlink.concat(searchTerm + '/');
     window.open(hyperlink, '_blank');
 }
 
+// this function will search the winner based on the search engine selected
 function searchWinner(){
     const winnerSubject = document.getElementById('subjectBox');
     const winnerCategory = document.getElementById('categoryBox');
