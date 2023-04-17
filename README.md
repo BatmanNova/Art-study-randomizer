@@ -3,6 +3,9 @@ an art study randomizer that randomly selects material for you to study based up
 
 Website is hosted through github, can use at: batmannova.github.io/Art-study-randomizer/
 
+The animalia data was collected via the ITIS database, examples of the queries I used can be found in MSSQLqueries.txt.
+
+
 The flow of the program is as follows:
 1. User selects categories of art studies they want to study
 2. User clicks the spin button

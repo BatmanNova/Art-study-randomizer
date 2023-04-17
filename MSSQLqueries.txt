@@ -1,0 +1,21 @@
+SELECT DISTINCT v.vernacular_name
+FROM vernaculars v
+JOIN taxonomic_units tu ON v.tsn = tu.tsn
+JOIN kingdoms k ON tu.kingdom_id = k.kingdom_id
+JOIN taxon_unit_types tut ON tu.kingdom_id = tut.kingdom_id 
+	AND tu.rank_id = tut.rank_id
+WHERE k.kingdom_name = 'Animalia' 
+	AND tut.rank_id = 100 
+	AND v.language LIKE 'english'
+ORDER BY v.vernacular_name;
+
+SELECT DISTINCT v.vernacular_name
+FROM vernaculars v
+JOIN taxonomic_units tu ON v.tsn = tu.tsn
+JOIN kingdoms k ON tu.kingdom_id = k.kingdom_id
+JOIN taxon_unit_types tut ON tu.kingdom_id = tut.kingdom_id 
+	AND tu.rank_id = tut.rank_id
+WHERE k.kingdom_name = 'Plantae' 
+	AND tut.rank_id = 140 
+	AND v.language LIKE 'english'
+ORDER BY v.vernacular_name;
