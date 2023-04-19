@@ -6,9 +6,10 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 //constants of lists (categories of art studies)
 const animalRegex = /Fish|Birds|Mammals|Insects|Reptiles/;
 const miscCategoryRegex = /Environments|Fashion|Architecture|Film|Portraits/;
-const twoWordCategoryRegex = /Still_lifes|Weird_animals|Still lifes|Weird animals/;
 //The twoWord regex has double inputs since I am using them for cleaning the "categoryWinner.textContent" and the search engine option conditional
 //in searchWinner(), which is reading the cleaned CategoryWinner.textContent. Probably a better way of doing this but haven't thought about it yet.
+const twoWordCategoryRegex = /Still_lifes|Weird_animals|Still lifes|Weird animals/;
+
 
 //This function will return an array of all the selected categories
 function getSelectedLists() {
@@ -145,7 +146,6 @@ function searchListsForWinner(){
 
     //There may be a better place for this but i'm adding it here currently
     // Following function will display the film-grab search button if the winner is a film
-    console.log(winnerCategory.textContent);
     if (winnerCategory.textContent == 'Film'){
         document.getElementById('film-grab-div').style.display = 'block';
         document.getElementById('pinterest').checked = false;
@@ -154,7 +154,6 @@ function searchListsForWinner(){
         document.getElementById('film-grab').checked = false;
         document.getElementById('pinterest').checked = true;
         document.getElementById('film-grab-div').style.display = 'none';
-        
     }
 }
 
