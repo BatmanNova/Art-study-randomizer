@@ -145,7 +145,8 @@ function searchListsForWinner(){
 
     //There may be a better place for this but i'm adding it here currently
     // Following function will display the film-grab search button if the winner is a film
-    if (subjectBox.textContent == 'Film'){
+    console.log(winnerCategory.textContent);
+    if (winnerCategory.textContent == 'Film'){
         document.getElementById('film-grab-div').style.display = 'block';
         document.getElementById('pinterest').checked = false;
         document.getElementById('film-grab').checked = true;
