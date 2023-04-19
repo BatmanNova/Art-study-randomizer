@@ -6,7 +6,9 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 //constants of lists (categories of art studies)
 const animalRegex = /Fish|Birds|Mammals|Insects|Reptiles/;
 const miscCategoryRegex = /Environments|Fashion|Architecture|Film|Portraits/;
-const twoWordCategoryRegex = /Still_life/;
+const twoWordCategoryRegex = /Still_lifes|Weird_animals|Still lifes|Weird animals/;
+//The twoWord regex has double inputs since I am using them for cleaning the "categoryWinner.textContent" and the search engine option conditional
+//in searchWinner(), which is reading the cleaned CategoryWinner.textContent. Probably a better way of doing this but haven't thought about it yet.
 
 //This function will return an array of all the selected categories
 function getSelectedLists() {
