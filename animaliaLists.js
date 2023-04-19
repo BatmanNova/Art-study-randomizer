@@ -397,7 +397,7 @@ const ARCHITECTURE = [
     'Expressionist Architecture'
 ];
 
-const STILL_LIFE = [
+const STILL_LIFES = [
     'Flower pieces still life',
     'Animal pieces still life',
     'Banquet pieces still life',
