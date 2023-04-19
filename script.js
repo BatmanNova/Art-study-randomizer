@@ -48,10 +48,15 @@ function getListContents(){
 // This function won't utilize getListContents because I want the category name to be displayed
 // This function just displays the contents of the selected categories
 function displaySelectedContents() {
-    const selectedCategories = document.querySelectorAll('input[type="checkbox"]:checked');
+    var selectedCategories = document.querySelectorAll('input[type="checkbox"]:checked');
+
+    if (selectedCategories.length == 0) {
+        // If 0, select every checkbox so a winner is randomly chosen from all categories
+        selectedCategories = document.querySelectorAll('input[type=checkbox]');
+    }
+
     const animalContainer = document.getElementsByClassName('displayCategoryContainer')[0];
     animalContainer.innerHTML = '';
-    console.log(animalContainer);
 
     selectedCategories.forEach((checkbox) => {
         const categoryArrayName = checkbox.value.toUpperCase();
@@ -185,6 +190,7 @@ function searchWinner(){
 
     if(winnerSubject.textContent == '---'){
         // do nothing as there is no winner
+        alert('Please spin the wheel first!');
     }
     else {
         if (animalRegex.test(winnerCategory.textContent) || miscCategoryRegex.test(winnerCategory.textContent) 
