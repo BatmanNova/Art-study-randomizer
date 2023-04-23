@@ -37,37 +37,28 @@ const BIRDS = [
 ];
 
 const INSECTS = [
-    'alderfly',
-    'amblypygid',
     'ant lion',
     'ant',
-    'caddisfly',
     'cicada',
     'cockroach',
     'daddy-longleg',
     'damselfly',
-    'dipluran',
     'dragonfly',
-    'false scorpion',
     'grasshopper',
-    'hangingfly',
     'humpbacked fly',
-    'ice crawler',
-    'isopod',
-    'jumping bristletail',
     'katydid',
     'locust',
-    'Manti',
+    'Mantis',
+    'Mecynorrhina ugandensis',
     'mosquito',
+    'Chrysina aurigans',
     'moth',
-    'scorpionfly',
     'scorpion',
     'spider',
     'stick insect',
-    'wasp',
+    'Bumblebee',
     'webspinner',
-    'whitefly',
-    'wind-scorpion'
+    'Picasso Bug',
 ];
 
 const FISH = [
