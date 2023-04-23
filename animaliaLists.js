@@ -37,7 +37,6 @@ const BIRDS = [
 ];
 
 const INSECTS = [
-    'ant lion',
     'ant',
     'cicada',
     'cockroach',
@@ -70,37 +69,29 @@ const FISH = [
     'bonytongue',
     'catfish',
     'chimaera',
-    'cod',
     'cow shark',
+    'Sea turtle',
+    'Octopus',
+    'Squid',
     'cowfish',
-    'damselfly',
-    'dory',
     'filefish',
-    'flatfish',
     'flying gurnard',
     'garfish',
     'grenadier',
     'hake',
-    'john dory',
     'killifish',
-    'lamprey',
     'milkfish',
-    'minnow',
     'needlefish',
     'opah',
-    'pikeperch',
     'piranha',
     'puffer',
     'salmon',
     'saw shark',
     'sea horse',
-    'skate fish',
+    'Manta ray',
     'snipefish',
-    'sole',
-    'stickleback',
     'stingray',
     'surgeonfish',
-    'tarpon',
     'trunkfish',
     'Oceanic dolphin',
     'Porpoise',
@@ -199,7 +190,6 @@ const MAMMALS =
     'Tasmanian devil',
     'Numbat',
     'Bandicoot',
-    'bilbies',
     'Bilby',
     'Koala',
     'Wombat',
@@ -214,13 +204,9 @@ const MAMMALS =
     'Platypus',
     'Echidna',
     'Sac-winged bat',
-    'Mouse-tailed bat',
     'Bumblebee bat',
     'False vampire bat',
-    'Horseshoe bat',
-    'Leaf-nosed bat',
-    'Vesper bat',
-    'Free-tailed bat'
+    'Vesper bat'
 ];
 
 const REPTILES = [
@@ -232,6 +218,7 @@ const REPTILES = [
     'Skink',
     'Whiptail',
     'tegus',
+    'Snake',
     'Monitor lizard'
 ];
 
