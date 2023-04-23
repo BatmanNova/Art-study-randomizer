@@ -54,6 +54,7 @@ const INSECTS = [
     'Chrysina aurigans',
     'moth',
     'scorpion',
+    'Caterpiller bug',
     'spider',
     'stick insect',
     'Bumblebee',
